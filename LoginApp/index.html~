@@ -1,0 +1,17 @@
+<html>
+ <head>
+  <title>
+   Post
+  </title>
+ </head>
+ <body>
+ <form action="http://172.18.16.9/sdsr/csp/logon.csp" method="post">
+  <P>
+   <INPUT type="text" id="firstname"><BR>
+   <INPUT type="text" id="lastname"><BR>
+   <INPUT type="text" id="email"><BR>
+   <INPUT type="submit" value="Send"> <INPUT type="reset">
+  </P>
+ </form>
+ </body>
+</html>

@@ -1,0 +1,3 @@
+CCR is configured for the following namespace(s): [org/sys/env]
+   SMOC: cl/SMOC/LIVE  [This is a LIVE environment; Use caution!]
+1

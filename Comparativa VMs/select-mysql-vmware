@@ -1,0 +1,30 @@
+Testing server 'MySQL 5.0.77' at 2010-06-02 17:07:59
+
+Testing the speed of selecting on keys that consist of many parts
+The test-table has 10000 rows and the test is done with 500 ranges.
+
+Creating table
+Inserting 10000 rows
+Time to insert (10000):  1 wallclock secs ( 0.15 usr  0.17 sys +  0.00 cusr  0.00 csys =  0.32 CPU)
+
+Test if the database has a query cache
+Time for select_cache (10000): 33 wallclock secs ( 0.90 usr  0.29 sys +  0.00 cusr  0.00 csys =  1.19 CPU)
+
+Time for select_cache2 (10000): 36 wallclock secs ( 1.06 usr  0.34 sys +  0.00 cusr  0.00 csys =  1.40 CPU)
+
+Testing big selects on the table
+Time for select_big (70:17207):  0 wallclock secs ( 0.04 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.04 CPU)
+Time for select_range (410:1057904): 24 wallclock secs ( 2.37 usr  0.25 sys +  0.00 cusr  0.00 csys =  2.62 CPU)
+Time for min_max_on_key (70000): 15 wallclock secs ( 4.18 usr  1.38 sys +  0.00 cusr  0.00 csys =  5.56 CPU)
+Time for count_on_key (50000): 72 wallclock secs ( 4.25 usr  1.34 sys +  0.00 cusr  0.00 csys =  5.59 CPU)
+
+Time for count_group_on_key_parts (1000:100000):  8 wallclock secs ( 0.32 usr  0.04 sys +  0.00 cusr  0.00 csys =  0.36 CPU)
+Testing count(distinct) on the table
+Time for count_distinct_key_prefix (1000:1000):  5 wallclock secs ( 0.13 usr  0.05 sys +  0.00 cusr  0.00 csys =  0.18 CPU)
+Time for count_distinct (1000:1000):  6 wallclock secs ( 0.12 usr  0.03 sys +  0.00 cusr  0.00 csys =  0.15 CPU)
+Time for count_distinct_2 (1000:1000): 11 wallclock secs ( 0.14 usr  0.04 sys +  0.00 cusr  0.00 csys =  0.18 CPU)
+Time for count_distinct_group_on_key (1000:6000):  9 wallclock secs ( 0.16 usr  0.03 sys +  0.00 cusr  0.00 csys =  0.19 CPU)
+Time for count_distinct_group_on_key_parts (1000:100000):  7 wallclock secs ( 0.33 usr  0.05 sys +  0.00 cusr  0.00 csys =  0.38 CPU)
+Time for count_distinct_group (1000:100000):  6 wallclock secs ( 0.32 usr  0.03 sys +  0.00 cusr  0.00 csys =  0.35 CPU)
+Time for count_distinct_big (100:1000000):  3 wallclock secs ( 2.06 usr  0.08 sys +  0.00 cusr  0.00 csys =  2.14 CPU)
+Total time: 237 wallclock secs (16.53 usr  4.12 sys +  0.00 cusr  0.00 csys = 20.65 CPU)

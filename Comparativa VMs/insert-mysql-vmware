@@ -1,0 +1,109 @@
+Testing server 'MySQL 5.0.77' at 2010-06-02 16:55:59
+
+Testing the speed of inserting data into 1 table and do some selects on it.
+The tests are done with a table that has 100000 rows.
+
+Generating random keys
+Creating tables
+Inserting 100000 rows in order
+Inserting 100000 rows in reverse order
+Inserting 100000 rows in random order
+Time for insert (300000): 45 wallclock secs ( 3.44 usr  5.17 sys +  0.00 cusr  0.00 csys =  8.61 CPU)
+
+Testing insert of duplicates
+Time for insert_duplicates (100000): 14 wallclock secs ( 1.35 usr  1.94 sys +  0.00 cusr  0.00 csys =  3.29 CPU)
+
+Test of prepared+execute/once prepared many execute selects
+Time for prepared_select (100000): 22 wallclock secs ( 5.49 usr  2.07 sys +  0.00 cusr  0.00 csys =  7.56 CPU)
+Time for once_prepared_select (100000): 18 wallclock secs ( 2.62 usr  1.84 sys +  0.00 cusr  0.00 csys =  4.46 CPU)
+Retrieving data from the table
+Time for select_big (10:3000000):  8 wallclock secs ( 5.78 usr  0.34 sys +  0.00 cusr  0.00 csys =  6.12 CPU)
+Time for order_by_big_key (10:3000000):  9 wallclock secs ( 5.94 usr  0.40 sys +  0.00 cusr  0.00 csys =  6.34 CPU)
+Time for order_by_big_key_desc (10:3000000): 10 wallclock secs ( 6.00 usr  0.40 sys +  0.00 cusr  0.00 csys =  6.40 CPU)
+Time for order_by_big_key_prefix (10:3000000):  9 wallclock secs ( 5.88 usr  0.32 sys +  0.00 cusr  0.00 csys =  6.20 CPU)
+Time for order_by_big_key2 (10:3000000):  8 wallclock secs ( 5.92 usr  0.26 sys +  0.00 cusr  0.00 csys =  6.18 CPU)
+Time for order_by_big_key_diff (10:3000000):  9 wallclock secs ( 5.91 usr  0.30 sys +  0.00 cusr  0.00 csys =  6.21 CPU)
+Time for order_by_big (10:3000000): 10 wallclock secs ( 5.87 usr  0.30 sys +  0.00 cusr  0.00 csys =  6.17 CPU)
+Time for order_by_range (500:125750):  1 wallclock secs ( 0.31 usr  0.02 sys +  0.00 cusr  0.00 csys =  0.33 CPU)
+Time for order_by_key_prefix (500:125750):  1 wallclock secs ( 0.32 usr  0.02 sys +  0.00 cusr  0.00 csys =  0.34 CPU)
+Time for order_by_key2_diff (500:250500):  1 wallclock secs ( 0.69 usr  0.03 sys +  0.00 cusr  0.00 csys =  0.72 CPU)
+Time for select_diff_key (500:1000):  0 wallclock secs ( 0.04 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.05 CPU)
+Time for select_range_prefix (5010:42084):  3 wallclock secs ( 0.60 usr  0.13 sys +  0.00 cusr  0.00 csys =  0.73 CPU)
+Time for select_range_key2 (5010:42084):  3 wallclock secs ( 0.60 usr  0.11 sys +  0.00 cusr  0.00 csys =  0.71 CPU)
+Time for select_key_prefix (200000): 46 wallclock secs (12.72 usr  4.03 sys +  0.00 cusr  0.00 csys = 16.75 CPU)
+Time for select_key (200000): 46 wallclock secs (13.00 usr  4.04 sys +  0.00 cusr  0.00 csys = 17.04 CPU)
+Time for select_key_return_key (200000): 46 wallclock secs (12.86 usr  4.26 sys +  0.00 cusr  0.00 csys = 17.12 CPU)
+Time for select_key2 (200000): 47 wallclock secs (13.00 usr  4.08 sys +  0.00 cusr  0.00 csys = 17.08 CPU)
+Time for select_key2_return_key (200000): 44 wallclock secs (12.24 usr  4.03 sys +  0.00 cusr  0.00 csys = 16.27 CPU)
+Time for select_key2_return_prim (200000): 46 wallclock secs (12.57 usr  4.15 sys +  0.00 cusr  0.00 csys = 16.72 CPU)
+
+Test of compares with simple ranges
+Time for select_range_prefix (20000:43500):  2 wallclock secs ( 0.75 usr  0.23 sys +  0.00 cusr  0.00 csys =  0.98 CPU)
+Time for select_range_key2 (20000:43500):  3 wallclock secs ( 0.74 usr  0.23 sys +  0.00 cusr  0.00 csys =  0.97 CPU)
+Time for select_group (111):  8 wallclock secs ( 0.02 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+Time for min_max_on_key (15000):  3 wallclock secs ( 0.83 usr  0.32 sys +  0.00 cusr  0.00 csys =  1.15 CPU)
+Time for min_max (60):  3 wallclock secs ( 0.01 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.01 CPU)
+Time for count_on_key (100):  6 wallclock secs ( 0.01 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+Time for count (100):  4 wallclock secs ( 0.02 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+Time for count_distinct_big (20):  8 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+
+Testing update of keys with functions
+Time for update_of_key (50000):  10 wallclock secs ( 0.67 usr  0.95 sys +  0.00 cusr  0.00 csys =  1.62 CPU)
+Time for update_of_key_big (501):  7 wallclock secs ( 0.02 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.03 CPU)
+
+Testing update with key
+Time for update_with_key (300000):  52 wallclock secs ( 3.58 usr  5.84 sys +  0.00 cusr  0.00 csys =  9.42 CPU)
+Time for update_with_key_prefix (100000):  19 wallclock secs ( 2.44 usr  1.94 sys +  0.00 cusr  0.00 csys =  4.38 CPU)
+
+Testing update of all rows
+Time for update_big (10):   7 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+
+Testing left outer join
+Time for outer_join_on_key (10:10):  11 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+Time for outer_join (10:10):  14 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+Time for outer_join_found (10:10):  13 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+Time for outer_join_not_found (500:10):  10 wallclock secs ( 0.00 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.01 CPU)
+
+Testing SELECT ... WHERE id in (10 values)
+Time for select_in (500:5000)  1 wallclock secs ( 0.04 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.05 CPU)
+
+Time for select_join_in (500:5000)  0 wallclock secs ( 0.06 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.07 CPU)
+
+Testing SELECT ... WHERE id in (100 values)
+Time for select_in (500:50000)  1 wallclock secs ( 0.16 usr  0.03 sys +  0.00 cusr  0.00 csys =  0.19 CPU)
+
+Time for select_join_in (500:50000)  0 wallclock secs ( 0.15 usr  0.02 sys +  0.00 cusr  0.00 csys =  0.17 CPU)
+
+Testing SELECT ... WHERE id in (1000 values)
+Time for select_in (500:500000)  9 wallclock secs ( 1.17 usr  0.14 sys +  0.00 cusr  0.00 csys =  1.31 CPU)
+
+Time for select_join_in (500:500000)  5 wallclock secs ( 1.14 usr  0.09 sys +  0.00 cusr  0.00 csys =  1.23 CPU)
+
+
+Testing INSERT INTO ... SELECT
+Time for insert_select_1_key (1):   1 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+Time for insert_select_2_keys (1):   2 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+Time for drop table(2):  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+
+Testing delete
+Time for delete_key (10000):  1 wallclock secs ( 0.13 usr  0.17 sys +  0.00 cusr  0.00 csys =  0.30 CPU)
+Time for delete_range (12):  3 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+
+Insert into table with 16 keys and with a primary key with 16 parts
+Time for insert_key (100000): 35 wallclock secs ( 2.21 usr  2.08 sys +  0.00 cusr  0.00 csys =  4.29 CPU)
+
+Testing update of keys
+Time for update_of_primary_key_many_keys (256):  7 wallclock secs ( 0.01 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+
+Deleting rows from the table
+Time for delete_big_many_keys (128): 14 wallclock secs ( 0.01 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+
+Deleting everything from table
+Time for delete_all_many_keys (1): 14 wallclock secs ( 0.01 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.02 CPU)
+
+Inserting 100000 rows with multiple values
+Time for multiple_value_insert (100000):  1 wallclock secs ( 0.10 usr  0.01 sys +  0.00 cusr  0.00 csys =  0.11 CPU)
+
+Time for drop table(1):  0 wallclock secs ( 0.00 usr  0.00 sys +  0.00 cusr  0.00 csys =  0.00 CPU)
+
+Total time: 713 wallclock secs (147.45 usr 50.39 sys +  0.00 cusr  0.00 csys = 197.84 CPU)

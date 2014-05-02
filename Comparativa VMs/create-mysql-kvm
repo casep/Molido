@@ -1,0 +1,8 @@
+Testing server 'MySQL 5.0.77' at 2010-07-16  0:20:04
+
+Testing the speed of creating and dropping tables
+Testing with 10000 tables and 10000 loop count
+
+Testing create of tables
+Can't execute command 'create table bench_1 (i int NOT NULL,d double,f float,s char(10),v varchar(100),primary key (i))'
+Error: Table 'bench_1' already exists

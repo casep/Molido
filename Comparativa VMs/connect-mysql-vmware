@@ -1,0 +1,6 @@
+Testing server 'MySQL 5.0.77' at 2010-06-02 10:06:22
+
+Testing the speed of connecting to the server and sending of data
+Connect tests are done 10000 times and other tests 100000 times
+
+Testing connection/disconnect

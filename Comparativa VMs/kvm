@@ -1,0 +1,72 @@
+[root@benchmarkkvm ~]# uname -a
+Linux benchmarkkvm 2.6.18-164.el5 #1 SMP Thu Sep 3 03:28:30 EDT 2009 x86_64 x86_64 x86_64 GNU/Linux
+
+[root@benchmarkkvm ~]# cat /proc/cpuinfo 
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 2
+model name	: QEMU Virtual CPU version 0.12.3
+stepping	: 3
+cpu MHz		: 2527.260
+cache size	: 4096 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 4
+wp		: yes
+flags		: fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up pni cx16 lahf_lm
+bogomips	: 5054.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+[root@benchmarkkvm ~]# cat /proc/meminfo 
+MemTotal:       510636 kB
+MemFree:          6668 kB
+Buffers:         49608 kB
+Cached:         225884 kB
+SwapCached:          0 kB
+Active:         270996 kB
+Inactive:       169764 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:       510636 kB
+LowFree:          6668 kB
+SwapTotal:     1048568 kB
+SwapFree:      1048480 kB
+Dirty:            2356 kB
+Writeback:          16 kB
+AnonPages:      165296 kB
+Mapped:          18992 kB
+Slab:            46688 kB
+PageTables:       4324 kB
+NFS_Unstable:        0 kB
+Bounce:              0 kB
+CommitLimit:   1303884 kB
+Committed_AS:   249532 kB
+VmallocTotal: 34359738367 kB
+VmallocUsed:      1144 kB
+VmallocChunk: 34359737215 kB
+HugePages_Total:     0
+HugePages_Free:      0
+HugePages_Rsvd:      0
+Hugepagesize:     2048 kB
+
+[root@benchmarkkvm ~]# rpm -qi mysql-server
+Name        : mysql-server                 Relocations: (not relocatable)
+Version     : 5.0.77                            Vendor: CentOS
+Release     : 4.el5_4.2                     Build Date: Sun 28 Feb 2010 08:51:17 PM CLST
+Install Date: Mon 31 May 2010 06:24:54 PM CLT      Build Host: builder10.centos.org
+Group       : Applications/Databases        Source RPM: mysql-5.0.77-4.el5_4.2.src.rpm
+Size        : 23096633                         License: GPLv2 with exceptions
+Signature   : DSA/SHA1, Mon 01 Mar 2010 03:41:21 PM CLST, Key ID a8a447dce8562897
+URL         : http://www.mysql.com
+Summary     : The MySQL server and related files.
+Description :
+MySQL is a multi-user, multi-threaded SQL database server. MySQL is a
+client/server implementation consisting of a server daemon (mysqld)
+and many different client programs and libraries. This package contains
+the MySQL server and some accompanying files and directories.
+
+
