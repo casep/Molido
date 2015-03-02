@@ -20,7 +20,9 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#  
+#  Process a pButtons file extracting VMStats and MGstats data
+#  20141108, casep, Initil Release
+#  20141110, casep, Compressed pButtons
 
 import sys, os 						# OS thingies
 import argparse as ap				# Prety arguments
