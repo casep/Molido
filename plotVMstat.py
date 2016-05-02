@@ -3,7 +3,7 @@
 #
 #  plotVMstat.py
 #  
-#  Copyright 2014 Carlos "casep" Sepulveda <casep@alumnos.inf.utfsm.cl>
+#  Copyright 2014 Carlos "casep" Sepulveda <casep@fedoraproject.org>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
