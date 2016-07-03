@@ -30,7 +30,8 @@ rpm --import /home/casep/Utils/RPMs/x86_64/linux_signing_key.pub
 dnf -y copr enable spot/chromium
 dnf -y install /home/casep/Utils/RPMs/i386/skype-4.3.0.37-fedora.i586.rpm /home/casep/Utils/RPMs/x86_64/google-talkplugin_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-free-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-nonfree-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/google-chrome-stable_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm /home/casep/Utils/RPMs/i386/projectlibre-1.6.2-1.rpm
 dnf -y remove thunderbird pidgin hexchat parole yumex yumex-dnf google-chrome-stable
-dnf -y install totem rhythmbox lm_sensors wine.i686 nemo-dropbox evolution evolution-ews google-chrome-unstable gummi geany numpy remmina keepassx thinkfan git gcc gcc-c++ stress remmina-plugins-rdp remmina-plugins-vnc python2-matplotlib pwgen gstreamer1-libav gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer-ffmpeg gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-nonfree dnf-automatic texmaker texlive-vmargin texlive-subfigure texlive-babel texlive-babel-english texlive-babel-spanish texlive-ulem autofs flash-plugin hunspell-es hunspell-en-GB aspell-en aspell-es VirtualBox kernel-devel hplip chromium filezilla unrar mplayer
+dnf -y update
+dnf -y install totem rhythmbox lm_sensors wine.i686 nemo-dropbox evolution evolution-ews google-chrome-unstable gummi geany numpy remmina keepassx thinkfan git gcc gcc-c++ stress remmina-plugins-rdp remmina-plugins-vnc python2-matplotlib pwgen gstreamer1-libav gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer-ffmpeg gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-nonfree dnf-automatic texmaker texlive-vmargin texlive-subfigure texlive-babel texlive-babel-english texlive-babel-spanish texlive-ulem autofs flash-plugin hunspell-es hunspell-en-GB aspell-en aspell-es VirtualBox kernel-devel hplip chromium filezilla unrar mplayer strace nmap
 
 
 # Enable autofs
@@ -40,6 +41,9 @@ sed -i '1i/home/casep/Hosted_Services     /etc/auto.cifs    --timeout=600 --ghos
 
 # Enable automatic dnf
 perl -pi -e 's/apply_updates = no/apply_updates = yes/' /etc/dnf/automatic.conf 
+
+#SELINUX
+sudo perl -pi -e 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 
 # My hosts
 rm -rf /etc/host ; ln -s /home/casep/.ssh/hosts /etc/hosts
@@ -51,5 +55,6 @@ akmods; systemctl restart systemd-modules-load.service
 echo "casep	ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 dnf upgrade -y
+
 
 exit 0
