@@ -48,13 +48,16 @@ sudo perl -pi -e 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 # My hosts
 rm -rf /etc/host ; ln -s /home/casep/.ssh/hosts /etc/hosts
 
-#VirtualBox thingies
+#VirtualBox thingies, this will probably fail due to kernel version
 akmods; systemctl restart systemd-modules-load.service
 
 #Frak passwords!
 echo "casep	ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 dnf upgrade -y
+
+#Enable autofs
+systemctl enable autofs
 
 
 exit 0
