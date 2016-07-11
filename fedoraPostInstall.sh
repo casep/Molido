@@ -27,7 +27,7 @@
 
 # Lovely packages
 rpm --import /home/casep/Utils/RPMs/x86_64/linux_signing_key.pub
-dnf -y copr enable spot/chromium
+dnf -y copr enable churchyard/chromium-russianfedora
 dnf -y install /home/casep/Utils/RPMs/i386/skype-4.3.0.37-fedora.i586.rpm /home/casep/Utils/RPMs/x86_64/google-talkplugin_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-free-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-nonfree-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/google-chrome-stable_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm /home/casep/Utils/RPMs/i386/projectlibre-1.6.2-1.rpm
 dnf -y remove thunderbird pidgin hexchat parole yumex yumex-dnf google-chrome-stable
 dnf -y update
@@ -56,8 +56,9 @@ echo "casep	ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 dnf upgrade -y
 
-#Enable autofs
+#Enable nice things
 systemctl enable autofs
+systemctl enable dnf-automatic.timer
 
 
 exit 0
