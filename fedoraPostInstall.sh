@@ -26,12 +26,15 @@
 ### Post install
 
 # Lovely packages
+fedoraVersion=$(cat /etc/fedora-release | cut -d" " -f3)
 rpm --import /home/casep/Utils/RPMs/x86_64/linux_signing_key.pub
 dnf -y copr enable churchyard/chromium-russianfedora
-dnf -y install /home/casep/Utils/RPMs/x86_64/skypeforlinux-64-alpha.rpm /home/casep/Utils/RPMs/x86_64/google-talkplugin_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-free-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/rpmfusion-nonfree-release-23.noarch.rpm /home/casep/Utils/RPMs/x86_64/google-chrome-stable_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm /home/casep/Utils/RPMs/i386/projectlibre-1.6.2-1.rpm
+dnf -y install /home/casep/Utils/RPMs/x86_64/skypeforlinux-64-alpha.rpm /home/casep/Utils/RPMs/x86_64/google-talkplugin_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/google-chrome-stable_current_x86_64.rpm /home/casep/Utils/RPMs/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm /home/casep/Utils/RPMs/i386/projectlibre-1.6.2-1.rpm
+dnf -y install http://download1.rpmfusion.org/nonfree/fedora/development/$fedoraVersion/Everything/x86_64/os/Packages/r/rpmfusion-nonfree-release-$fedoraVersion-0.6.noarch.rpm
+dnf -y install http://download1.rpmfusion.org/free/fedora/development/$fedoraVersion/Everything/x86_64/os/Packages/r/rpmfusion-free-release-$fedoraVersion-0.6.noarch.rpm
 dnf -y remove thunderbird pidgin hexchat parole yumex yumex-dnf google-chrome-stable
 dnf -y update
-dnf -y install totem rhythmbox lm_sensors wine.i686 nemo-dropbox evolution evolution-ews google-chrome-unstable gummi geany numpy remmina keepassx thinkfan git gcc gcc-c++ stress remmina-plugins-rdp remmina-plugins-vnc python2-matplotlib pwgen gstreamer1-libav gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer-ffmpeg gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-nonfree dnf-automatic texmaker texlive-vmargin texlive-subfigure texlive-babel texlive-babel-english texlive-babel-spanish texlive-ulem autofs flash-plugin hunspell-es hunspell-en-GB aspell-en aspell-es VirtualBox kernel-devel hplip chromium filezilla unrar mplayer strace nmap dia
+dnf -y install totem rhythmbox lm_sensors wine.i686 nemo-dropbox evolution evolution-ews google-chrome-unstable gummi geany numpy remmina keepassx thinkfan git gcc gcc-c++ stress remmina-plugins-rdp remmina-plugins-vnc python2-matplotlib pwgen gstreamer1-libav gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer-ffmpeg gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-nonfree dnf-automatic texmaker texlive-vmargin texlive-subfigure texlive-babel texlive-babel-english texlive-babel-spanish texlive-ulem autofs flash-plugin hunspell-es hunspell-en-GB aspell-en aspell-es VirtualBox kernel-devel hplip chromium filezilla unrar mplayer strace nmap dia blueproximity cinnamon NetworkManager-openconnect texlive-appendix
 
 
 # Enable autofs
