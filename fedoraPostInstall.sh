@@ -52,7 +52,7 @@ sudo perl -pi -e 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 rm -rf /etc/hosts ; ln -s /home/casep/.ssh/hosts /etc/hosts
 
 #VirtualBox thingies, this will probably fail due to kernel version
-akmods; systemctl restart systemd-modules-load.service
+#akmods; systemctl restart systemd-modules-load.service
 
 #Frak passwords!
 echo "casep	ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
