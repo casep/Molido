@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for UNIX (IBM AIX for System Power System-64) 2012.2.4 (Build 954U)" ts="2018-03-26 12:48:30">
+<Class name="Custom.SCXX.Task.CheckIWB">
+<Super>%SYS.Task.Definition</Super>
+<TimeChanged>62368,69146</TimeChanged>
+<TimeCreated>62025,65047.405468</TimeCreated>
+
+<Parameter name="TaskName">
+<Default>SCXX: Check Interface Workbench</Default>
+</Parameter>
+
+<Property name="InterfaceCodeList">
+<Description>
+Comma separated list with the codes of the interfaces that must be up or "*" for all of them</Description>
+<Type>%String</Type>
+<InitialExpression>"*"</InitialExpression>
+<Parameter name="MAXLEN" value="32000"/>
+</Property>
+
+<Method name="Test">
+<ClassMethod>1</ClassMethod>
+<Implementation><![CDATA[
+        Set o=..%New()
+        Do o.OnTask()
+]]></Implementation>
+</Method>
+
+<Method name="OnTask">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+        Set tSC = $System.Status.OK()
+        
+        Try
+        {
+                Set tRS = ##class(%ResultSet).%New()
+                Set tSC = tRS.Prepare("select i.%ID, i.INT_Code, im.INTMON_Active, im.INTMON_Status from SS_Interface i, SS_InterfaceMonitor im where im.INTMON_RowId=i.%ID order by INT_Code")
+                Quit:$System.Status.IsError(tSC)
+        
+                Set tRS2 = ##class(%ResultSet).%New()
+                Set tSC = tRS2.Prepare("update ss_interfacemonitor set intmon_active='Y' where INTMON_Interface_DR=?")
+                Quit:$System.Status.IsError(tSC)
+
+                Set tSC = tRS.Execute()
+                Quit:$System.Status.IsError(tSC)
+                
+                While tRS.Next()
+                {
+                        Set tInterfaceId = tRS.GetData(1)
+                        Set tInterfaceCode = tRS.GetData(2)
+                        If (..InterfaceCodeList'="*") && ((","_..InterfaceCodeList_",")'[(","_tInterfaceCode_",")) Continue
+                
+                        Set tSC = tRS2.Execute(tInterfaceId)
+                        Quit:$System.Status.IsError(tSC)
+                        
+                        Job Start^HL7(tInterfaceCode)
+                }
+        }
+        Catch(tException)
+        {
+                Set tSC = tException.AsStatus()
+        }
+        
+        Quit tSC
+]]></Implementation>
+</Method>
+</Class>
+</Export>
+
